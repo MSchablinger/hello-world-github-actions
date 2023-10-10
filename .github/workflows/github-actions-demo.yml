@@ -41,8 +41,21 @@ jobs:
       - docs
     runs-on: ubuntu-22.04
     steps:
-      - name: 
-        run: |
+      - name: Download our text file
+        uses: actions/download-artifact@v3
+        with:
+          name: hello
+
+      - run: |
           pwd
           ls -l
+      - uses: xresloader/upload-to-github-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+            file: "demo.txt"
+            tags: false
+            overwrite: true
+            update_latest_release: true
+            verbose: true
       - run: echo "done"
