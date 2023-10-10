@@ -25,7 +25,8 @@ jobs:
     name: documentation
     runs-on: ubuntu-22.04
     steps:
-      - name: Hello |
+      - name: Hello
+      - run: |
           echo "hello, world\n" > demo.txt
           pwd
           ls -l
