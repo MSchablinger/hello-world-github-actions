@@ -22,7 +22,7 @@ jobs:
           java HelloWorld
       - run: echo "🍏 This job's status is ${{ job.status }}."
   docs:
-    name: documentation
+    name: docs
     runs-on: ubuntu-22.04
     steps:
       - name: Hello
@@ -34,7 +34,7 @@ jobs:
   deploy:
     needs:
       - build
-      - documentation
+      - docs
     runs-on: ubuntu-22.04
     steps:
       - run: echo "done"
